@@ -5,6 +5,8 @@
 
 #include <cubos/engine/input/axis.hpp>
 
+#include <algorithm>
+
 using cubos::core::io::GamepadAxis;
 using cubos::core::io::Key;
 using cubos::core::io::Modifiers;
