@@ -7,6 +7,7 @@
 #include <cubos/engine/settings/settings.hpp>
 #include <cubos/engine/voxels/plugin.hpp>
 #include <cubos/engine/transform/plugin.hpp>
+#include <cubos/engine/input/plugin.hpp>
 
 using cubos::core::ecs::Commands;
 using cubos::core::ecs::Read;
@@ -19,6 +20,8 @@ using namespace cubos::engine;
 /// [Get handles to assets]
 static const Asset<VoxelGrid> CastleAsset = AnyAsset("cb2d193a-63b0-11ee-8c99-0242ac120002");
 static const Asset<VoxelPalette> PaletteAsset = AnyAsset("df4cdbb2-63b0-11ee-8c99-0242ac120002");
+static const Asset<InputBindings> BindingsAsset = AnyAsset("d06dac09-72ae-4793-93b5-9ed722847be4");
+
 
 // Setting the assets folder
 static void settingsSystem(Write<Settings> settings)
@@ -89,6 +92,8 @@ int main()
     cubos.addPlugin(rendererPlugin);
 
     cubos.addPlugin(voxelsPlugin);
+
+    cubos.addPlugin(inputPlugin);
 
     cubos.startupSystem(settingsSystem).tagged("cubos.settings");
     cubos.startupSystem(spawnLightSystem);
